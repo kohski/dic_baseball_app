@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_id: MyString
+  year_id: 1
+  stint: 1
+  team_id: MyString
+  lg_id: MyString
+  wins: 1
+  losses: 1
+  games: 1
+  games_started: 1
+  complete_games: 1
+  shutouts: 1
+  saves: 1
+  ipouts: 1
+  hits: 1
+  error_counts: 1
+  homeruns: 1
+  bases_on_balls: 1
+  strikes_outs: 1
+  baopp: 9.99
+  earned_run_average: 9.99
+  intentional_walks: 1
+  wild_pitches: 1
+  hit_by_pitches: 1
+  balks: 1
+  batters_faced: 1
+  games_finished: 1
+  runs: 1
+  sacrifice_hits: 1
+  acrifice_flies: 1
+  ground_into_double_plays: 1
+
+two:
+  player_id: MyString
+  year_id: 1
+  stint: 1
+  team_id: MyString
+  lg_id: MyString
+  wins: 1
+  losses: 1
+  games: 1
+  games_started: 1
+  complete_games: 1
+  shutouts: 1
+  saves: 1
+  ipouts: 1
+  hits: 1
+  error_counts: 1
+  homeruns: 1
+  bases_on_balls: 1
+  strikes_outs: 1
+  baopp: 9.99
+  earned_run_average: 9.99
+  intentional_walks: 1
+  wild_pitches: 1
+  hit_by_pitches: 1
+  balks: 1
+  batters_faced: 1
+  games_finished: 1
+  runs: 1
+  sacrifice_hits: 1
+  acrifice_flies: 1
+  ground_into_double_plays: 1
