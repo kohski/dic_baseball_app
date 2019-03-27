@@ -142,39 +142,56 @@ describe Pitcher do
   # ////////////////////////////////////////////////////////////
 
   it "top_winner_in_term:一人だけ" do
-    Pitcher.create(player_id:'AAA',year_id:2000,wins:20, salary:100)
-    Pitcher.create(player_id:'BBB',year_id:2000,wins:19)
-    Pitcher.create(player_id:'CCC',year_id:2000,wins:18, salary:200)
-    Pitcher.create(player_id:'DDD',year_id:2001,wins:17, salary:150)
-    Pitcher.create(player_id:'EEE',year_id:2001,wins:16, salary:100)
-    Pitcher.create(player_id:'FFF',year_id:2000,wins:15, salary:100)
-    expect(Pitcher.best_cost_performance(2000)).to eq ['AAA']
+    Pitcher.create(player_id: 'taro', year_id: 2000, wins: 20)
+    Pitcher.create(player_id: 'jiro', year_id: 2000, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2000, wins: 10)
+    Pitcher.create(player_id: 'taro', year_id: 2001, wins: 10)
+    Pitcher.create(player_id: 'jiro', year_id: 2001, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2001, wins: 20)
+    Salary.create(player_id: 'taro', year_id: 2000, salary: 200000)
+    Salary.create(player_id: 'jiro', year_id: 2000, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2000, salary: 300000)
+    Salary.create(player_id: 'taro', year_id: 2001, salary: 300000)
+    Salary.create(player_id: 'jiro', year_id: 2001, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2001, salary: 200000)
+    expect(Pitcher.best_cost_performance(2000)).to eq ["taro"]
   end
   it "top_winner_in_term:複数人" do
-    Pitcher.create(player_id:'AAA',year_id:2000,wins:20, salary:100)
-    Pitcher.create(player_id:'BBB',year_id:2000,wins:19)
-    Pitcher.create(player_id:'CCC',year_id:2000,wins:18, salary:90)
-    Pitcher.create(player_id:'DDD',year_id:2001,wins:17, salary:150)
-    Pitcher.create(player_id:'EEE',year_id:2001,wins:16, salary:100)
-    Pitcher.create(player_id:'FFF',year_id:2000,wins:15, salary:100)
-    expect(Pitcher.best_cost_performance(2000)).to eq ['AAA','CCC']
+    Pitcher.create(player_id: 'taro', year_id: 2000, wins: 20)
+    Pitcher.create(player_id: 'jiro', year_id: 2000, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2000, wins: 10)
+    Pitcher.create(player_id: 'taro', year_id: 2001, wins: 10)
+    Pitcher.create(player_id: 'jiro', year_id: 2001, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2001, wins: 20)
+    Salary.create(player_id: 'taro', year_id: 2000, salary: 200000)
+    Salary.create(player_id: 'jiro', year_id: 2000, salary: 150000)
+    Salary.create(player_id: 'saburo', year_id: 2000, salary: 300000)
+    Salary.create(player_id: 'taro', year_id: 2001, salary: 300000)
+    Salary.create(player_id: 'jiro', year_id: 2001, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2001, salary: 200000)
+    expect(Pitcher.best_cost_performance(2000)).to eq ["taro","jiro"]
   end
   it "top_winner_in_term:給与データなし" do
-    Pitcher.create(player_id:'AAA',year_id:2000,wins:20)
-    Pitcher.create(player_id:'BBB',year_id:2000,wins:19)
-    Pitcher.create(player_id:'CCC',year_id:2000,wins:18)
-    Pitcher.create(player_id:'DDD',year_id:2001,wins:17, salary:150)
-    Pitcher.create(player_id:'EEE',year_id:2001,wins:16, salary:100)
-    Pitcher.create(player_id:'FFF',year_id:2000,wins:15, salary:100)
-    expect(Pitcher.best_cost_performance(2000)).to eq []
+    Pitcher.create(player_id: 'taro', year_id: 2000, wins: 20)
+    Pitcher.create(player_id: 'jiro', year_id: 2000, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2000, wins: 10)
+    Pitcher.create(player_id: 'taro', year_id: 2001, wins: 10)
+    Pitcher.create(player_id: 'jiro', year_id: 2001, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2001, wins: 20)
+    Salary.create(player_id: 'jiro', year_id: 2000, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2000, salary: 300000)
+    Salary.create(player_id: 'taro', year_id: 2001, salary: 300000)
+    Salary.create(player_id: 'jiro', year_id: 2001, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2001, salary: 200000)
+    expect(Pitcher.best_cost_performance(2000)).to eq ["jiro"]
   end
   it "top_winner_in_term:投手データなし" do
-    Pitcher.create(player_id:'AAA',year_id:1999,wins:20)
-    Pitcher.create(player_id:'BBB',year_id:2002,wins:19)
-    Pitcher.create(player_id:'CCC',year_id:2003,wins:18)
-    Pitcher.create(player_id:'DDD',year_id:2001,wins:17, salary:150)
-    Pitcher.create(player_id:'EEE',year_id:2001,wins:16, salary:100)
-    Pitcher.create(player_id:'FFF',year_id:1999,wins:15, salary:100)
+    Pitcher.create(player_id: 'taro', year_id: 2001, wins: 10)
+    Pitcher.create(player_id: 'jiro', year_id: 2001, wins: 15)
+    Pitcher.create(player_id: 'saburo', year_id: 2001, wins: 20)
+    Salary.create(player_id: 'taro', year_id: 2001, salary: 300000)
+    Salary.create(player_id: 'jiro', year_id: 2001, salary: 250000)
+    Salary.create(player_id: 'saburo', year_id: 2001, salary: 200000)
     expect(Pitcher.best_cost_performance(2000)).to eq []
   end
 
